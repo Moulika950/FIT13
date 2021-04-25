@@ -31,7 +31,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     private Workout workout;
     private String tester;
 
-
+    //Workout log page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
