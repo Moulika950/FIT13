@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#021C1E"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#021C1E"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/title_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Title: "
+                android:textColor="#CCFFFFFF" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/title_edit"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="#CCFFFFFF"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:layout_toRightOf="@id/title_label"
+                android:layout_toEndOf="@id/title_label"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linear1"/>
+
+        <LinearLayout
+            android:id="@+id/linear2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date: "
+                android:textColor="#CCFFFFFF" />
+
+            <Space
+                android:layout_width="8dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/date_edit"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints="MM/DD/YYYY"
+                android:background="#CCFFFFFF"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linear1"/>
+
+        <LinearLayout
+            android:id="@+id/linear3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/duration_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Duration: "
+                android:textColor="#CCFFFFFF" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/duration_edit"
+                android:layout_width="229dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#CCFFFFFF"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linear1"/>
+
+        <LinearLayout
+            android:id="@+id/linear4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/description_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Description: "
+                android:textColor="#CCFFFFFF" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                />
+
+            <EditText
+                android:id="@+id/description_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:autofillHints=""
+                android:background="#CCFFFFFF"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@id/linear1"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/duration_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Incorrect duration format"
+                android:textColor="#EB5555"
+                android:visibility="invisible"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

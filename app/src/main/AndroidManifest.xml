@@ -11,8 +11,7 @@
         android:theme="@style/Theme.FIT13">
 
         <activity android:name=".applockActivity"></activity>
-        <activity android:name=".WorkoutActivity"></activity>
-        <activity android:name=".DietActivity"></activity>
+
         <activity android:name=".MainActivity" android:label="" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".WorkoutActivity"
+            android:parentActivityName=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DietActivity"></activity>
+
+        <activity android:name=".WorkoutDetail"
+            android:parentActivityName=".WorkoutActivity"></activity>
     </application>
 
 </manifest>
