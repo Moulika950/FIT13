@@ -16,7 +16,7 @@ import com.sample.fit13.R;
 
 import java.util.ArrayList;
 
-public class WorkoutDetail extends AppCompatActivity{
+public class WorkoutDetail extends AppCompatActivity implements CreateDialog.CreateDialogListener{
 
     TextView wdTitle, wdDate, wdDuration, wdDescription;
     ImageView wdImage;
@@ -30,16 +30,12 @@ public class WorkoutDetail extends AppCompatActivity{
         setContentView(R.layout.workout_detail);
 
         Intent intent = getIntent();
-        list = intent.getParcelableArrayListExtra("Ex");
 
         wdTitle = findViewById(R.id.detail_title);
         wdDate = findViewById(R.id.detail_date);
         wdDuration = findViewById(R.id.detail_duration);
         wdDescription = findViewById(R.id.detail_description);
         wdImage = findViewById(R.id.imageView);
-
-
-
 
 
         String mTitle = intent.getStringExtra("iTitle");
@@ -63,9 +59,6 @@ public class WorkoutDetail extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item){
 
-        Intent intent2 = new Intent("custom message");
-        intent2.putExtra("Example Item", list);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent2);
 
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -76,9 +69,32 @@ public class WorkoutDetail extends AppCompatActivity{
 
     }
 
+    public void openDialog() {
+        CreateDialog createDialog = new CreateDialog();
 
+        createDialog.show(getSupportFragmentManager(), "create dialog");
 
+    }
 
+    public void insertItem(Workout w) {
+
+        ExampleItem m = new ExampleItem();
+        m.setTitle(w.getTitle());
+        m.setDuration(w.getDuration());
+        m.setDate(w.getDate());
+        m.setDescription(w.getDescription());
+
+        //Image files
+        m.setWeightImg(R.drawable.weight_icon);
+        m.setCloseImg(R.drawable.delete_icon);
+        MainActivity.exampleList.add(m);
+
+    }
+
+    @Override
+    public void saveData(Workout w) {
+        insertItem(w);
+    }
 }
 
 
