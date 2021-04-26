@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 openDietActivity();
             }
         });
-
-        Premissions();
     }
 
     public void openNewActivity(){
@@ -98,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openWorkoutActivity(){
+        Premissions();
+
         Intent intent = new Intent(this, WorkoutActivity.class);
         startActivity(intent);
     }
