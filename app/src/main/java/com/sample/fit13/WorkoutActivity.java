@@ -46,6 +46,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_activity);
+        getSupportActionBar().hide();
 
 
         //Button click to open insert workout log dialog

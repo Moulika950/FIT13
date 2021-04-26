@@ -51,7 +51,7 @@ public class WorkoutDetail extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle(mTitle);
+        actionBar.setTitle("");
 
         //Puts information on page TextViews
         wdTitle.setText(mTitle);

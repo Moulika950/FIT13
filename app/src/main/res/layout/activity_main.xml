@@ -130,14 +130,14 @@
         android:id="@+id/caloriesText"
         android:layout_width="100dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="192dp"
         android:ems="10"
         android:hint="@string/calories"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
@@ -169,10 +169,28 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/button3"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:background="#2C7873"
+        android:backgroundTint="#2C7873"
+        android:text="@string/diet_tracker"
+        android:textColor="#B3FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975" />
+
+    <Button
         android:id="@+id/button2"
-        android:layout_width="111dp"
-        android:layout_height="73dp"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:background="#2C7873"
+        android:backgroundTint="#2C7873"
         android:text="@string/workout_log"
+        android:textColor="#B3FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,9 +199,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="104dp"
-        android:layout_height="73dp"
+        android:layout_width="110dp"
+        android:layout_height="90dp"
+        android:background="#2C7873"
+        android:backgroundTint="#2C7873"
         android:text="@string/lock_apps"
+        android:textColor="#B3FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"
@@ -191,17 +212,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.975" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="109dp"
-        android:layout_height="72dp"
-        android:text="@string/diet_tracker"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.947"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
 
     <TextView
         android:id="@+id/timer"
@@ -214,20 +224,23 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintHorizontal_bias="0.273"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/Start"
         android:layout_width="90dp"
         android:layout_height="67dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="64dp"
+        android:background="#2C7873"
+        android:backgroundTint="#2C7873"
         android:onClick="startView"
         android:text="Start"
+        android:textColor="#B3FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toEndOf="@+id/timer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
