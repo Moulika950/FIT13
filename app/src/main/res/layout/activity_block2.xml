@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BlockActivity">
@@ -14,6 +15,7 @@
         android:layout_marginTop="292dp"
         android:text="This App is Blocked"
         android:textAlignment="center"
+        android:textColor="#B3FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,6 +31,7 @@
         android:onClick="Close"
         android:text="Close"
         android:textAlignment="center"
+        android:textColor="#B3FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
