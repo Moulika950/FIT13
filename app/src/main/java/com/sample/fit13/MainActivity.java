@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Method to get and set total hours worked out for user
     void getTotalHours(){
 
         int totalHours = 0;

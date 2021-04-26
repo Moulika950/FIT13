@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FIT13">
         <activity android:name=".BlockActivity"></activity>
-        <activity android:name=".applockActivity" />
+        <activity android:name=".applockActivity"
+            />
         <activity
             android:name=".MainActivity"
             android:label="">

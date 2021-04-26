@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//Adapter to handle recycler view from workout log page
 public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleViewHolder> {
 
     private ArrayList<ExampleItem> mExampleList;
@@ -20,8 +21,8 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     Context c;
 
+    //Interface for deleting card
     public interface OnItemClickListener{
-        void onItemClick(int position);
         void onDeleteClick(int position);
     }
 
@@ -30,7 +31,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         mlistener = listener;
     }
 
-
+    //Creates workout log card
     @NonNull
     @Override
     public ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,7 +46,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
     }
 
 
-
+    //Binder that gets object information and passes it onwards
     @Override
     public void onBindViewHolder(@NonNull ExampleViewHolder holder, int position) {
         ExampleItem currentItem = mExampleList.get(position);
@@ -89,6 +90,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
         return MainActivity.exampleList.size();
     }
 
+    //Holder class to set up UI elements
     public static class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         ImageView mWeightImageView, mCloseImageView;

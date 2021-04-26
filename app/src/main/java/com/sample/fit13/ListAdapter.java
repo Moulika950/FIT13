@@ -25,8 +25,6 @@ public class ListAdapter extends ArrayAdapter<String> {
 
     public ListAdapter(@NonNull Context context, ArrayList<String> appNames, ArrayList<AppInfo> apps) {
         super(context, R.layout.apps_list,R.id.AppName, appNames);
-
-
         this.context = context;
         this.Apps = apps;
 

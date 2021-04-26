@@ -12,6 +12,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+//Custom Dialog to insert new workout log
 public class CreateDialog extends AppCompatDialogFragment {
 
     private EditText edTitle, edDate, edDuration, edDescription;
@@ -25,13 +26,7 @@ public class CreateDialog extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_dialog, null);
 
-        /*textView.setText("Log insert failed");
-        textView.setPadding(20, 30, 20, 10);
-        textView.setTextSize(20F);
-        textView.setBackgroundColor(Color.BLACK);
-        textView.setTextColor(Color.WHITE);*/
-
-
+        //Creates Dialog
         builder.setView(view).setTitle("New Log").setPositiveButton("Save", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
@@ -52,7 +47,7 @@ public class CreateDialog extends AppCompatDialogFragment {
 
                 String error = "";
 
-
+                //CHecks for valid user input
                 if(!WorkoutHandler.checkTitle(title)) {
                     error = error + "Title is too long\n";
                     accepted = false;
@@ -78,19 +73,18 @@ public class CreateDialog extends AppCompatDialogFragment {
                     listener.saveData(w);
 
                 } else {
+
+                    //Creates another Alert Dialog to inform user of format errors
                     new AlertDialog.Builder(getActivity())
                             .setTitle("Log insert failed")
                             .setMessage(error)
 
-                            // Specifying a listener allows you to take an action before dismissing the dialog.
-                            // The dialog is automatically dismissed when a dialog button is clicked.
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // Continue with delete operation
+
                                 }
                             })
 
-                            // A null listener allows the button to dismiss the dialog and take no further action.
                             .setIcon(android.R.drawable.ic_dialog_alert)
                             .show();
                 }

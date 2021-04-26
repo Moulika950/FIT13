@@ -21,24 +21,23 @@ import com.sample.fit13.Workout;
 
 import java.util.ArrayList;
 
+//Class to handle workout log page
 public class WorkoutActivity extends AppCompatActivity implements CreateDialog.CreateDialogListener{
 
+    //Initialize variables
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    //private ArrayList<ExampleItem> exampleList = new ArrayList<>();
     private TextView createItem;
     private Workout workout;
-    private String tester;
 
-    //Workout log page
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_activity);
 
 
-
+        //Button click to open insert workout log dialog
         createItem = findViewById(R.id.create_new);
         createItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,16 +50,18 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
 
     }
 
-
+    //Method to insert log to recycler view and display it
     public void createLog(){
         mAdapter.notifyItemInserted(MainActivity.exampleList.size()-1);
     }
 
+    //Method to remove log from recycler
     public void removeItem(int position) {
         MainActivity.exampleList.remove(position);
         mAdapter.notifyItemRemoved(position);
     }
 
+    //Method to build recycler view
     private void buildRecyclerView() {
         mRecyclerView= findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -71,10 +72,6 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         mRecyclerView.setAdapter(mAdapter);
 
         mAdapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                createLog();
-            }
 
             @Override
             public void onDeleteClick(int position) {
@@ -83,7 +80,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         });
     }
 
-
+    //Creates custom Alert Dialog
     public void openDialog() {
         CreateDialog createDialog = new CreateDialog();
 
@@ -91,6 +88,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
 
     }
 
+    //Inserts new log Object to ArrayList
     public void insertItem(Workout w) {
 
         ExampleItem m = new ExampleItem();
@@ -106,6 +104,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
 
     }
 
+    //CreateDialogListener interface
     @Override
     public void saveData(Workout w) {
         workout = w;

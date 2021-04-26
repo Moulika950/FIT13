@@ -1,5 +1,7 @@
 package com.sample.fit13;
 
+
+//Object to store workout information
 public class Workout {
 
     private String title;

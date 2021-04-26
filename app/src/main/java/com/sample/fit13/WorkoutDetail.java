@@ -16,11 +16,11 @@ import com.sample.fit13.R;
 
 import java.util.ArrayList;
 
-public class WorkoutDetail extends AppCompatActivity implements CreateDialog.CreateDialogListener{
+//Class to handle workout detail page
+public class WorkoutDetail extends AppCompatActivity {
 
     TextView wdTitle, wdDate, wdDuration, wdDescription;
     ImageView wdImage;
-    ArrayList<ExampleItem> list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class WorkoutDetail extends AppCompatActivity implements CreateDialog.Cre
 
         setContentView(R.layout.workout_detail);
 
-        Intent intent = getIntent();
+
 
         wdTitle = findViewById(R.id.detail_title);
         wdDate = findViewById(R.id.detail_date);
@@ -37,17 +37,23 @@ public class WorkoutDetail extends AppCompatActivity implements CreateDialog.Cre
         wdDescription = findViewById(R.id.detail_description);
         wdImage = findViewById(R.id.imageView);
 
+        //Gets Information to fill in textViews from workout_log page
+        Intent intent = getIntent();
+
 
         String mTitle = intent.getStringExtra("iTitle");
         String mDuration = intent.getStringExtra("iDur");
         String mDate = intent.getStringExtra("iDate");
         String mDescription = intent.getStringExtra("iDes");
 
+
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         actionBar.setTitle(mTitle);
+
+        //Puts information on page TextViews
         wdTitle.setText(mTitle);
         wdDuration.setText(mDuration);
         wdDate.setText(mDate);
@@ -57,6 +63,7 @@ public class WorkoutDetail extends AppCompatActivity implements CreateDialog.Cre
 
     }
 
+    //Overloads back button to have custom result
     public boolean onOptionsItemSelected(MenuItem item){
 
 
@@ -69,32 +76,8 @@ public class WorkoutDetail extends AppCompatActivity implements CreateDialog.Cre
 
     }
 
-    public void openDialog() {
-        CreateDialog createDialog = new CreateDialog();
 
-        createDialog.show(getSupportFragmentManager(), "create dialog");
 
-    }
-
-    public void insertItem(Workout w) {
-
-        ExampleItem m = new ExampleItem();
-        m.setTitle(w.getTitle());
-        m.setDuration(w.getDuration());
-        m.setDate(w.getDate());
-        m.setDescription(w.getDescription());
-
-        //Image files
-        m.setWeightImg(R.drawable.weight_icon);
-        m.setCloseImg(R.drawable.delete_icon);
-        MainActivity.exampleList.add(m);
-
-    }
-
-    @Override
-    public void saveData(Workout w) {
-        insertItem(w);
-    }
 }
 
 
