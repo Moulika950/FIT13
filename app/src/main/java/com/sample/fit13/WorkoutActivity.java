@@ -26,7 +26,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     private RecyclerView mRecyclerView;
     private ExampleAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<ExampleItem> exampleList = new ArrayList<>();
+    //private ArrayList<ExampleItem> exampleList = new ArrayList<>();
     private TextView createItem;
     private Workout workout;
     private String tester;
@@ -47,29 +47,17 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
             }
         });
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("custom-message"));
-
         buildRecyclerView();
 
     }
 
-    public BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            // Get extra data included in the Intent
-            exampleList = intent.getParcelableArrayListExtra("Example Item");
-            createLog();
-
-        }
-    };
 
     public void createLog(){
-        mAdapter.notifyItemInserted(exampleList.size()-1);
+        mAdapter.notifyItemInserted(MainActivity.exampleList.size()-1);
     }
 
     public void removeItem(int position) {
-        exampleList.remove(position);
+        MainActivity.exampleList.remove(position);
         mAdapter.notifyItemRemoved(position);
     }
 
@@ -77,7 +65,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         mRecyclerView= findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager= new LinearLayoutManager(this);
-        mAdapter = new ExampleAdapter(this, exampleList);
+        mAdapter = new ExampleAdapter(this, MainActivity.exampleList);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
@@ -114,7 +102,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         //Image files
         m.setWeightImg(R.drawable.weight_icon);
         m.setCloseImg(R.drawable.delete_icon);
-        exampleList.add(m);
+        MainActivity.exampleList.add(m);
 
     }
 

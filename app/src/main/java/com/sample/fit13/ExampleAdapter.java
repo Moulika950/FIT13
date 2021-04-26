@@ -86,7 +86,7 @@ public class ExampleAdapter extends RecyclerView.Adapter<ExampleAdapter.ExampleV
 
     @Override
     public int getItemCount() {
-        return mExampleList.size();
+        return MainActivity.exampleList.size();
     }
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

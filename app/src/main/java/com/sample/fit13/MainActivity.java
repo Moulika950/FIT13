@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     //Hello
     Button button;
     Button button2;
     Button button3;
+
+    public static ArrayList<ExampleItem> exampleList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
