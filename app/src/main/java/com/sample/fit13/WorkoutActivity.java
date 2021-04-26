@@ -13,6 +13,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView createItem;
     private Workout workout;
+    private Button homePage,dietPage,lockerPage;
 
 
     @Override
@@ -47,6 +49,35 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_activity);
         getSupportActionBar().hide();
+
+        //Navigation Buttons
+        homePage = findViewById(R.id.homepage);
+        dietPage = findViewById(R.id.diet_tracker);
+        lockerPage = findViewById(R.id.app_locker);
+
+        //Button click events to navigate to app pages
+        dietPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDietActivity();
+            }
+        });
+
+        //Button click events to navigate to app pages
+        lockerPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLockActivity();
+            }
+        });
+
+        //Button click events to navigate to app pages
+        homePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMainActivity();
+            }
+        });
 
 
         //Button click to open insert workout log dialog
@@ -121,6 +152,20 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         editor.putString("log list", json);
         editor.apply();
 
+    }
+
+    public void openLockActivity(){
+        Intent intent = new Intent(this, applockActivity.class);
+        startActivity(intent);
+    }
+
+    public void openMainActivity(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+    public void openDietActivity(){
+        Intent intent = new Intent(this, DietActivity.class);
+        startActivity(intent);
     }
 
 

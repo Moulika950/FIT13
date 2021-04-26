@@ -79,11 +79,11 @@
             android:id="@+id/homepage"
             android:layout_width="110dp"
             android:layout_height="90dp"
+            android:layout_gravity="bottom"
             android:background="#2C7873"
             android:backgroundTint="#2C7873"
-            android:text="Home"
-            android:textColor="#B3FFFFFF"
-            android:layout_gravity="bottom"/>
+            android:text="Home Page"
+            android:textColor="#B3FFFFFF" />
 
         <Space
             android:layout_width="12dp"
