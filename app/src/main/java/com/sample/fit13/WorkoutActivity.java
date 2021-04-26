@@ -177,6 +177,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     public void saveData(Workout w) {
         workout = w;
         insertItem(workout);
+        buildRecyclerView();
 
     }
 
