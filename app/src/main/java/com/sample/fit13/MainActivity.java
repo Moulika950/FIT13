@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             totalHours += hours;
             int minutes = Integer.parseInt(part2);
             totalMinutes += minutes;
-            if(totalMinutes>60){
+            if(totalMinutes>=60){
                 totalMinutes = totalMinutes - 60;
                 totalHours++;
             }

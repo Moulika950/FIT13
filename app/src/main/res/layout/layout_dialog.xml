@@ -80,6 +80,7 @@
                 android:autofillHints="MM/DD/YYYY"
                 android:background="#CCFFFFFF"
                 android:ems="10"
+                android:hint="MM/DD/YYYY"
                 android:inputType="textPersonName" />
         </LinearLayout>
 
@@ -115,7 +116,8 @@
                 android:layout_weight="1"
                 android:background="#CCFFFFFF"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:hint="HH:MM"/>
         </LinearLayout>
 
         <Space
