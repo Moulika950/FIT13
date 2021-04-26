@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -12,11 +13,20 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,17 +45,21 @@ public class MainActivity extends AppCompatActivity {
     //get a list of installed apps.
     public  static  int currentProfileIndex;
     public static ArrayList<AppInfo> currentProfileApps;
-
-    public static ArrayList<ExampleItem> exampleList = new ArrayList<>();
+    final static String RECORDS_FILENAME = "ExampleItem ArrayList";
+    public static ArrayList<ExampleItem> exampleList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        loadData();
+
         button = (Button) findViewById(R.id.button);
         durationTotal = findViewById(R.id.TotalExerciseHours);
 
         getTotalHours();
+
         getSupportActionBar().hide();
 
         if(currentProfileApps == null)
@@ -176,6 +190,22 @@ public class MainActivity extends AppCompatActivity {
         durationTotal.setText(Integer.toString(totalHours));
 
     }
+
+    private void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("log list", null);
+        Type type = new TypeToken<ArrayList<ExampleItem>>() {}.getType();
+        exampleList = gson.fromJson(json, type);
+
+        if(exampleList == null) {
+            exampleList = new ArrayList<>();
+
+        }
+    }
+
+
+
 
 
 }

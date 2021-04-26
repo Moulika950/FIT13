@@ -9,16 +9,26 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.sample.fit13.CreateDialog;
 import com.sample.fit13.ExampleAdapter;
 import com.sample.fit13.ExampleItem;
 import com.sample.fit13.R;
 import com.sample.fit13.Workout;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 //Class to handle workout log page
@@ -30,6 +40,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     private RecyclerView.LayoutManager mLayoutManager;
     private TextView createItem;
     private Workout workout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +100,7 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     }
 
     //Inserts new log Object to ArrayList
-    public void insertItem(Workout w) {
+    private void insertItem(Workout w) {
 
         ExampleItem m = new ExampleItem();
         m.setTitle(w.getTitle());
@@ -102,14 +113,28 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         m.setCloseImg(R.drawable.delete_icon);
         MainActivity.exampleList.add(m);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(MainActivity.exampleList);
+        editor.putString("log list", json);
+        editor.apply();
+
     }
 
-    //CreateDialogListener interface
+
+
+
+
+        //CreateDialogListener interface
     @Override
     public void saveData(Workout w) {
         workout = w;
         insertItem(workout);
+
     }
+
+
 
 
 }
