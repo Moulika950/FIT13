@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     Button button2;
     Button button3;
+
+    EditText durationTotal;
 
     public  static TextView timerText;
     public  static Button start;
@@ -40,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         button = (Button) findViewById(R.id.button);
+        durationTotal = findViewById(R.id.TotalExerciseHours);
 
+        getTotalHours();
         getSupportActionBar().hide();
 
         if(currentProfileApps == null)
@@ -147,5 +152,29 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    void getTotalHours(){
+
+        int totalHours = 0;
+        int totalMinutes = 0;
+        for(int i = 0; i < exampleList.size(); i++){
+            String duration = exampleList.get(i).getDuration();
+            String[] parts = duration.split(":");
+            String part1 = parts[0];
+            String part2 = parts[1];
+            int hours = Integer.parseInt(part1);
+            totalHours += hours;
+            int minutes = Integer.parseInt(part2);
+            totalMinutes += minutes;
+            if(totalMinutes>60){
+                totalMinutes = totalMinutes - 60;
+                totalHours++;
+            }
+        }
+
+        durationTotal.setText(Integer.toString(totalHours));
+
+    }
+
 
 }
