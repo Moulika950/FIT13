@@ -126,7 +126,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.141" />
 
-    <EditText
+    <TextView
         android:id="@+id/caloriesText"
         android:layout_width="100dp"
         android:layout_height="46dp"
@@ -141,7 +141,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <EditText
+    <TextView
         android:id="@+id/currentCaloriesViewText"
         android:layout_width="95dp"
         android:layout_height="57dp"
@@ -155,7 +155,7 @@
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/TotalExerciseHours"
         android:layout_width="92dp"
         android:layout_height="50dp"
