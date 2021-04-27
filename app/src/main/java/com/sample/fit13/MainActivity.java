@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
 
-    EditText durationTotal;
+    TextView durationTotal;
 //start
     public  static TextView timerText;
     public  static Button start;
