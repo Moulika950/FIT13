@@ -75,6 +75,12 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     //Method to remove log from recycler
     public void removeItem(int position) {
         MainActivity.exampleList.remove(position);
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(MainActivity.exampleList);
+        editor.putString("log list", json);
+        editor.apply();
         mAdapter.notifyItemRemoved(position);
     }
 

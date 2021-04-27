@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/currentCaloriesText1"
@@ -13,234 +13,280 @@
         android:layout_width="97dp"
         android:layout_height="46dp"
         android:text="@string/fit13"
-        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+         />
 
-    <TextView
-        android:id="@+id/text1"
+    <LinearLayout
+        android:id="@+id/motivation_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/textView"
+        android:layout_marginLeft="50dp">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/daily_motivation"
+            android:textColor="#FFFFFF"
+             />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/keep_moving_forward"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.134"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.141" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/goals_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/motivation_layout"
+        android:paddingHorizontal="50dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+
+        <LinearLayout
+            android:id="@+id/lin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                app:srcCompat="@drawable/goal" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="10dp">
+
+            </Space>
+
+            <TextView
+                android:id="@+id/caloriesText"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/calories"
+                android:inputType="textPersonName"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calorie_goal"
+                android:textColor="#FFFFFF"
+                />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp">
+
+        </Space>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/daily_motivation"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        android:orientation="horizontal"
+        >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.257"
-        app:srcCompat="@drawable/goal" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="53dp"
+            android:layout_height="46dp"
+            app:srcCompat="@drawable/cherry" />
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="53dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.381"
-        app:srcCompat="@drawable/cherry" />
+        </Space>
 
-    <ImageView
-        android:id="@+id/imageView3"
+        <TextView
+            android:id="@+id/currentCaloriesViewText"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="@string/currentcalories"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_calories"
+            android:textColor="#FFFFFF"
+             />
+
+
+    </LinearLayout>
+
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="10dp"></Space>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502"
-        app:srcCompat="@drawable/exercise" />
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/exercise" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:text="@string/calorie_goal"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269" />
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:text="@string/current_calories"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.61"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
+        </Space>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="@string/total_exercise_hours"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.752"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        <TextView
+            android:id="@+id/TotalExerciseHours"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:ems="30"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/textView5"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_exercise_hours"
+            android:textColor="#FFFFFF"
+             />
+
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/timer_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/keep_moving_forward"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
+        android:orientation="horizontal"
+        android:layout_below="@id/goals_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
 
-    <TextView
-        android:id="@+id/caloriesText"
-        android:layout_width="100dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="192dp"
-        android:ems="10"
-        android:hint="@string/calories"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.915"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            />
 
-    <TextView
-        android:id="@+id/currentCaloriesViewText"
-        android:layout_width="95dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="260dp"
-        android:ems="10"
-        android:hint="@string/currentcalories"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Space
+            android:layout_width="150dp"
+            android:layout_height="100dp">
 
-    <TextView
-        android:id="@+id/TotalExerciseHours"
-        android:layout_width="92dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="344dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </Space>
+
+
+        <Button
+            android:id="@+id/Start"
+            android:layout_width="90dp"
+            android:layout_height="67dp"
+            android:background="#2C7873"
+            android:backgroundTint="#2C7873"
+            android:onClick="startView"
+            android:text="Start"
+            android:textColor="#B3FFFFFF"
+            android:textStyle="bold"
+             />
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="20dp"
+        >
+
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="110dp"
-        android:layout_height="90dp"
+        android:layout_width="115dp"
+        android:layout_height="120dp"
         android:background="#2C7873"
         android:backgroundTint="#2C7873"
         android:text="@string/diet_tracker"
         android:textColor="#B3FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+         />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp"></Space>
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="110dp"
-        android:layout_height="90dp"
+        android:layout_width="115dp"
+        android:layout_height="120dp"
         android:background="#2C7873"
         android:backgroundTint="#2C7873"
         android:text="@string/workout_log"
         android:textColor="#B3FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+         />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="10dp"></Space>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="110dp"
-        android:layout_height="90dp"
+        android:layout_width="115dp"
+        android:layout_height="120dp"
         android:background="#2C7873"
         android:backgroundTint="#2C7873"
         android:text="@string/lock_apps"
         android:textColor="#B3FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+         />
 
 
-    <TextView
-        android:id="@+id/timer"
-        android:layout_width="195dp"
-        android:layout_height="63dp"
-        android:layout_marginBottom="52dp"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/Start"
-        android:layout_width="90dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="64dp"
-        android:background="#2C7873"
-        android:backgroundTint="#2C7873"
-        android:onClick="startView"
-        android:text="Start"
-        android:textColor="#B3FFFFFF"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toEndOf="@+id/timer" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
