@@ -13,6 +13,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,10 +49,10 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.workout_activity);
-        getSupportActionBar().hide();
 
         ActionBar actionBar = getSupportActionBar();
-
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Button click to open insert workout log dialog
         createItem = findViewById(R.id.create_new);
@@ -126,8 +127,6 @@ public class WorkoutActivity extends AppCompatActivity implements CreateDialog.C
         editor.apply();
 
     }
-
-
 
 
 
