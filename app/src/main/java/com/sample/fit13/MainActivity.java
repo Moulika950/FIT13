@@ -1,5 +1,6 @@
 package com.sample.fit13;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AppOpsManager;
@@ -13,20 +14,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import org.w3c.dom.Text;
+
 import java.lang.reflect.Type;
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
     Button button3;
 
     TextView durationTotal;
-//start
+    TextView calorieTotal;
+    TextView calorieGoal;
+
+
+    //start
     public  static TextView timerText;
     public  static Button start;
 
@@ -46,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
     public  static  int currentProfileIndex;
     public static ArrayList<AppInfo> currentProfileApps;
     final static String RECORDS_FILENAME = "ExampleItem ArrayList";
+    final static String RECORDS_FILENAME_2 = "DietExItem ArrayList";
     public static ArrayList<ExampleItem> exampleList;
+    public static ArrayList<DietExItem> dietExampleList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +59,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         loadData();
-
         button = (Button) findViewById(R.id.button);
         durationTotal = findViewById(R.id.TotalExerciseHours);
 
+        loadDietData();
+        button = (Button) findViewById(R.id.button);
+        calorieTotal = findViewById(R.id.currentCaloriesViewText);
+        calorieGoal =  findViewById(R.id.caloriesText);
+
         getTotalHours();
+        getTotalCalories();
+
+        Intent intent = getIntent();
+        String goal = intent.getStringExtra("goal");
+        calorieGoal =  findViewById(R.id.caloriesText);
+        calorieGoal.setText(goal);
 
         getSupportActionBar().hide();
 
@@ -86,9 +101,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openDietActivity();
+
             }
         });
     }
+
+    /*@Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 999 && requestCode == RESULT_OK){
+               calorieGoal.setText(data.getStringExtra("goal"));
+        }
+    }*/
 
     public void openNewActivity(){
         Intent intent = new Intent(this, applockActivity.class);
@@ -102,8 +126,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openDietActivity(){
+        Premissions();
+
         Intent intent = new Intent(this, DietActivity.class);
-        startActivity(intent);
+        startActivityForResult(new Intent (getApplicationContext(),DietActivity.class),999);
     }
 
     private ArrayList<AppInfo> getInstalledApps() {
@@ -191,6 +217,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    void getTotalCalories(){
+
+        int totalCals = 0;
+        for(int i = 0; i < dietExampleList.size(); i++){
+            String calTotal = dietExampleList.get(i).getCalories();
+            int cal = Integer.parseInt(calTotal);
+            totalCals += cal;
+        }
+        calorieTotal.setText(Integer.toString(totalCals));
+    }
+
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         Gson gson = new Gson();
@@ -204,5 +241,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void loadDietData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("diet shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("diet log list", null);
+        Type type = new TypeToken<ArrayList<DietExItem>>() {}.getType();
+        dietExampleList = gson.fromJson(json, type);
+
+        if(dietExampleList == null) {
+            dietExampleList = new ArrayList<>();
+
+        }
+    }
+
+
 
 }
